@@ -10,6 +10,6 @@ $ORIGIN 1.168.192.in-addr.arpa.
 1D ) ; negative caching TTL
 @ IN NS alpha.blue.lan
 2.0 IN PTR alpha.blue.lan
-3.0 IN PTR pr002.blue.lan
+
 #10.0 IN PTR pr010.blue.lan
 11.0 IN PTR pr020.blue.lan
