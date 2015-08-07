@@ -1,0 +1,4 @@
+---
+# file mediawiki/thandlers/main.yml
+- name: restart webserver
+  service: name=httpd state=reloaded

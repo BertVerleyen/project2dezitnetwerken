@@ -1,0 +1,14 @@
+# roles/common/main.yml
+---
+- name: Install common packages
+  yum: pkg={{item}} state=installed
+  with_items:
+    - libselinux-python
+    - git
+    
+- name: activate selinux enforcing
+  selinux: state=enforcing policy=targeted
+
+- name: Enable Firewall
+  service: name=firewalld state=running enabled=true
+  

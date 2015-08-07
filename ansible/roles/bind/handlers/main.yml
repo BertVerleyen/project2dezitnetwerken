@@ -1,0 +1,5 @@
+- name: restart firewall
+  service: name=firewalld state=reloaded
+  
+- name: restart BIND
+  service: name=named state=reloaded 

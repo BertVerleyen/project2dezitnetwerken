@@ -1,0 +1,17 @@
+# hosts.yml
+#
+# List of hosts to be created by Vagrant. Your `site.yml` should contain
+# the same hosts. This file controls the Vagrant settings, `site.yml` the
+# Ansible-related stuff.
+---
+-
+  name: alpha
+  ip: 192.168.0.4
+  netmask: 255.255.255.224
+-
+  name: bravo
+  ip: 192.168.0.5
+  netmask: 255.255.255.224
+
+
+

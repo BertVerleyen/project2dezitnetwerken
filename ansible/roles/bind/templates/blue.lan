@@ -1,0 +1,28 @@
+; Zone file for blue.lan
+$ORIGIN blue.lan.
+$TTL 1W
+;		primary NS		email address admin
+@ IN SOA alpha.blue.lan. hostmaster.blue.lan. (
+  14101813	; serial
+  1D		; refresh
+  1H		; retry
+  1W		; expire
+  1D )		; negative caching TTL
+
+		IN	 NS	alpha.blue.lan.
+
+# @ 		IN	 MX	10 mail.linuxlab.net.
+
+
+alpha 		IN	 A	 192.168.0.4
+dns 		  IN	 CNAME	 alpha
+charlie		IN	 A	 192.168.1.4
+ns2 		  IN	 CNAME	 pu002
+bravo 		IN	 A	 192.168.0.5
+www 		  IN	 CNAME	 bravo
+
+
+
+# pr010 		IN	 A	 172.16.0.10
+delta       IN   A   192.168.1.5
+file 		  IN	 CNAME	 delta

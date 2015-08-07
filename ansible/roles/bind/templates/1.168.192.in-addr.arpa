@@ -1,0 +1,15 @@
+; Reverse zone file for blue.lan
+$TTL 1W
+$ORIGIN 1.168.192.in-addr.arpa.
+; primary NS email address admin
+@ IN SOA alpha.blue.lan. hostmaster.blue.lan. (
+14101813 ; serial
+1D ; refresh
+1H ; retry
+1W ; expire
+1D ) ; negative caching TTL
+@ IN NS alpha.blue.lan
+2.0 IN PTR alpha.blue.lan
+3.0 IN PTR pr002.blue.lan
+#10.0 IN PTR pr010.blue.lan
+11.0 IN PTR pr020.blue.lan

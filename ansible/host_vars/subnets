@@ -1,0 +1,18 @@
+
+# host_vars/alpha
+# vi: ft=yaml
+---
+domain: blue.lan
+
+subnets:
+  - name: 192.168.0.0
+    netmask: 255.255.255.224
+    router: 172.19.0.99
+    domain: blue.lan
+    dns: 192.168.0.4
+    range: 192.168.0.2 192.168.0.28  
+    
+    
+
+
+  

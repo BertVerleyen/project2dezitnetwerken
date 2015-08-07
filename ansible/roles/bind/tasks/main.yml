@@ -1,0 +1,45 @@
+- name: install bind packages
+  yum: pkg={{ item }} state=installed
+  with_items:
+  - bind
+  - bind-utils
+ 
+- name: activate bind service
+  service: name=named state=running enabled=true
+
+- name: apply firewall rules
+  firewalld: 
+    port=53/tcp
+    state=enabled
+    permanent=true
+  notify: restart firewall
+  
+- name: Copy config file
+  template: 
+    src=named.conf
+    dest=/etc/named.conf
+    owner=root
+    group=named
+    mode=640 
+ #  validate='sudo named-checkconf /etc/named.conf'
+#   notify: restart BIND
+
+- name: Copy forward lookup zone
+  template: 
+    src=blue.lan
+    dest=/var/named/blue.lan
+    owner=root
+    group=named
+    mode=640
+#   notify: restart BIND
+- name: Copy reverse lookup zone
+  template: 
+    src={{item}}
+    dest=/var/named/{{item}}
+    owner=root
+    group=named
+    mode=640
+  with_items:
+    - 0.168.192.in-addr.arpa
+    - 1.168.192.in-addr.arpa
+  notify: restart BIND

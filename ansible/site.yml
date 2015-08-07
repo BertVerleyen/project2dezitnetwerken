@@ -1,0 +1,45 @@
+# site.yml
+---
+- hosts: pu010
+  sudo : true
+  roles:
+    - common
+    - web
+    - db
+    - wordpress
+    
+- hosts: pu001
+  sudo: true
+  roles:
+    - common
+    - bind
+    
+#- hosts: pu002
+#  sudo: true
+#  roles:
+#    - common
+#    - bind
+
+- hosts: pr011
+  sudo: true
+  roles:
+    - common
+    - samba 
+    - ftp
+    
+- hosts: pr001
+  sudo: true
+  roles:
+    - common
+    - dhcp
+    
+- hosts: pr010
+  sudo: true
+  roles: 
+    - common
+    - web
+    - db
+    - wordpress
+       
+
+

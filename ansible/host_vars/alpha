@@ -1,0 +1,51 @@
+# host_vars/alpha
+# vi: ft=yaml
+---
+gateway: 192.168.0.1
+bind_listen_ipv4:
+  - "any"
+bind_listen_ipv6:
+  - "any"
+bind_allow_query: "192.168.0.0/27;192.168.1.0/24;"
+bind_recursion: "no"
+bind_zone_name: "blue.lan"
+bind_zone_file: "blue.lan"
+bind_rev_zone1: "0.168.192.in-addr.arpa"
+bind_rev_zone1_file: "0.168.192.in-addr.arpa"
+bind_rev_zone2: "1.168.192.in-addr.arpa"
+bind_rev_zone2_file: "1.168.192.in-addr.arpa"
+bind_zone_networks:
+  - ip: "192.168.0"
+    reverse: "0.168.192"
+  - ip: "192.168.1"
+    reverse: "1.168.192"
+bind_zone_name_servers:
+  - "alpha"
+bind_zone_mail_servers:
+  - name: "mail"
+    preference: "10"
+bind_zone_hosts:
+  - name: alpha
+    ip: 192.168.0.4
+    aliases:
+      - dns
+  - name: charlie
+    ip: 192.168.1.4
+    aliases:
+      - ads
+  - name: bravo
+    ip: 192.168.0.5
+    aliases:
+      - www
+  - name: delta
+    ip: 192.168.1.5
+    aliases:
+      - fs
+      
+  
+#  - name: pr010
+#    ip: 172.16.0.10
+#    aliases:
+#      - intra
+#      - intranet
+  

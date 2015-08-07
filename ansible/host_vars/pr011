@@ -1,0 +1,173 @@
+
+# host_vars/pr011
+# vi: ft=yaml
+---
+ftp_anon_root: /srv/shares
+samba_netbios_name: FILESRV
+samba_workgroup: LINUXLAB
+samba_server_string: Fileserver pr011
+
+samba_enable_homes: 'yes'
+
+samba_share_root: /srv/shares
+ftp_local_root: /srv/shares
+
+samba_shares:
+  - name: public
+    create_mode: 775
+    force_group: public
+    write_list: "@public"
+    force_create_mode: 775
+    directory_mask: 775
+    force_directory_mode: 775
+    
+  - name: beheer
+    create_mode: 770
+    force_group: beheer
+    write_list: "@beheer"
+    valid_users: "@beheer"
+    force_create_mode: 770
+    directory_mask: 770
+    force_directory_mode: 770
+    setype: samba_share_t
+    
+  - name: directie
+    create_mode: 775
+    force_group: directie
+    write_list: "@directie"
+    valid_users: "@staf"
+    force_create_mode: 775
+    directory_mask: 775
+    force_directory_mode: 775
+ 
+  - name: staf  
+    create_mode: 775
+    force_group: staf
+    write_list: "@staf"
+    force_create_mode: 775
+    directory_mask: 775
+    force_directory_mode: 775
+    
+  - name: financieringen
+    create_mode: 775
+    force_group: financieringen
+    write_list: "@financieringen"
+    force_create_mode: 775
+    directory_mask: 775
+    force_directory_mode: 775
+    
+  - name: verzekeringen
+    create_mode: 775
+    force_group: verzekeringen
+    write_list: "@verzekeringen"
+    force_create_mode: 775
+    directory_mask: 775
+    force_directory_mode: 775
+    
+    
+samba_users:
+  - name: franka
+    given_name: Frank
+    surname: Assengraaf
+    groups:
+      - directie
+      - public
+      - staf
+      - financieringen
+      - verzekeringen    
+    password: franka
+  
+  - name: femkevdv
+    given_name: Femke
+    surname: Van De Vorst
+    groups:
+      - public     
+      - staf         
+    password: femkevdv
+    
+  - name: hansb
+    given_name: Hans
+    surname: Berghuis
+    groups:
+      - verzekeringen
+      - public   
+    password: hansb   
+    
+  - name: kimberlyvh
+    given_name: Kimberly
+    surname: Van Herk
+    groups:
+      - verzekeringen
+      - public    
+    password: kimberlyvh
+
+  - name: taniav
+    given_name: Tania
+    surname: Versantvoort
+    groups:
+      - verzekeringen
+      - public    
+    password: taniav
+    
+  - name: peterj
+    given_name: Peter
+    surname: Jongsma
+    groups:
+      - financieringen 
+      - public  
+    password: peterj
+    
+  - name: maaiked
+    given_name: Maaike
+    surname: Doorn
+    groups:
+      - beheer
+      - directie
+      - staf
+      - financieringen
+      - verzekeringen 
+      - public   
+    password: maaiked
+    shell: /bin/bash
+    
+  - name: giannis
+    given_name: Gianni
+    surname: Swagrid
+    groups:
+      - beheer
+      - directie
+      - staf
+      - financieringen
+      - verzekeringen
+      - public   
+    password: giannis
+    shell: /bin/bash
+    
+  - name: karimek
+    given_name: Karim
+    surname: G
+    groups:
+      - beheer
+      - directie
+      - staf
+      - financieringen
+      - verzekeringen
+      - public    
+    password: karimek
+    shell: /bin/bash
+    
+  - name: bertvv
+    given_name: Bert
+    surname: Van Vreckem
+    groups:
+      - beheer
+      - directie
+      - staf
+      - financieringen
+      - verzekeringen
+      - public    
+    password: bertvv
+    shell: /bin/bash
+  
+  
+

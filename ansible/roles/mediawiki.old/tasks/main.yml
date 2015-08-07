@@ -1,0 +1,19 @@
+---
+# file mediawiki/tasks/main.yml
+- name: Extract mediawiki to server
+  unarchive: src=mediawiki.tar.gz dest=/var/www/html/
+- name: change folder name
+  file: src=/var/www/html/mediawiki-1.23.5 dest=/var/www/html/mediawiki state=link
+#zet mediawiki file naast de index.php: Stoel_Wiki
+- name: copy mediawiki settings
+  template: src=LocalSettings.php dest=/var/www/html/mediawiki
+  notify: restart webserver
+- name: aanpassen permissies
+  file: 
+    path=/var/www/html/mediawiki-1.23.5
+    owner=root
+    group=apache
+    seuser=unconfined_u
+    serole=object_r
+    setype=httpd_sys_content_t
+    recurse=yes

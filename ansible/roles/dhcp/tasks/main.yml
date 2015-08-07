@@ -1,0 +1,6 @@
+- name: install dhcp service
+  yum: pkg=dhcp state=installed
+
+- name: dhcp config copy
+  template : src=dhcpd.conf dest=/etc/dhcp/dhcpd.conf mode=644 owner=root group=root
+  notify : restart dhcp
