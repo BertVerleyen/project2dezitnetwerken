@@ -5,7 +5,7 @@
   roles:
     - common
     - bind
-	- dhcp
+
     
 - hosts: bravo
   sudo: true
